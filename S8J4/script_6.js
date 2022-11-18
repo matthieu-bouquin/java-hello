@@ -22,11 +22,18 @@ const ARN = {
   UAU: 'Tyrosine',
   UAC: 'Tyrosine',
 };
+
 function convertARNToAcid(str) {
+  let arr = str.toUpperCase().match(/.{1,3}/g);
+  let result = [];
+    arr.forEach((item) => {
+  result.push(ARN[item]);
+  });
+  return result.join('-');
+}
 
+console.log("ARN de CCGUCGUUGCGCUACAGC est: ");
+console.log(convertARNToAcid("CCGUCGUUGCGCUACAGC"));
 
-console.log('ARN de CCGUCGUUGCGCUACAGC est: ');
-console.log(convertARNToAcid('CCGUCGUUGCGCUACAGC'));
-
-console.log('ARN de CCUCGCCGGUACUUCUCG est: ');
-console.log(convertARNToAcid('CCUCGCCGGUACUUCUCG'));
+console.log("ARN de CCUCGCCGGUACUUCUCG est:");
+console.log(convertARNToAcid("CCUCGCCGGUACUUCUCG"));
